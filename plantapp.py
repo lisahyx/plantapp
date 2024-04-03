@@ -14,11 +14,6 @@ from tensorflow.keras.layers import TFSMLayer
 
 # In[4]:
 
-
-# Load the pre-trained CNN model
-# model = tf.keras.models.load_model('MobileNetV2_augment_30epochs', compile=False)
-#model = tf.keras.layers.TFSMLayer(MobileNetV2_augment_30epochs, call_endpoint='serving_default')
-
 # Path to the directory containing the SavedModel
 model_path = 'MobileNetV2_random'
 
