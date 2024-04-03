@@ -26,7 +26,7 @@ model_path = 'MobileNetV2_random'
 model = tf.saved_model.load(model_path)
 
 # Load the labels from labels.npy
-class_names = np.load('augmented_labels.npy')
+class_names = np.load('random_labels.npy')
 
 # Streamlit 
 st.title('Image Classification and Identification Website')
