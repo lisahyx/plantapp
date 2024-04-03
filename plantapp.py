@@ -20,7 +20,7 @@ from tensorflow.keras.layers import TFSMLayer
 #model = tf.keras.layers.TFSMLayer(MobileNetV2_augment_30epochs, call_endpoint='serving_default')
 
 # Path to the directory containing the SavedModel
-model_path = 'MobileNetV2_augment_30epochs'
+model_path = 'MobileNetV2_random'
 
 # Load the SavedModel
 model = tf.saved_model.load(model_path)
