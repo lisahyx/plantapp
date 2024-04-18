@@ -13,7 +13,18 @@ model = tf.saved_model.load(model_path)
 class_names = np.load('unique_labels.npy')
 
 # Streamlit 
-st.title('Image Classification and Identification Website')
+st.title('Tropical Plant Classification and Identification Web App')
+
+# Introduction
+st.write("This web app allows you to upload images of tropical plants and receive predictions from a pre-trained MobileNetV2 deep learning model. Once you upload an image, the model will provide you with its prediction along with the probability scores for each class.")
+
+# Display the list of supported tropical plants
+st.write(f"The tropical plants supported are: {', '.join(class_names)}")
+
+# Link to test images
+st.write("You can find sample test images [here](https://drive.google.com/drive/folders/1FL8a_rlJ_TG-SJURA7HQ-SYspWLTnujG?usp=drive_link).")
+
+st.write("")
 
 # Upload image
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "png", "jpeg"])
@@ -36,14 +47,14 @@ if uploaded_file is not None:
     predicted_label = class_names[predicted_label_index]
 
     # Display the predicted label
-    st.write(f"Predicted Label: {predicted_label}")
+    st.markdown(f"### Predicted Label: {predicted_label}")
+    
+    st.write("")
     
     # Convert probabilities to percentages
     probabilities_percent = [f"{prob * 100:.2f}%" for prob in predictions[0]]
 
     # Create a table to display prediction probabilities
     prob_table = {"Label Name": class_names, "Probability": probabilities_percent}
-    st.write("Prediction Probabilities:")
+    st.markdown(f"#### Predicted Probabilities:")
     st.table(prob_table)
-
-
