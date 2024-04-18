@@ -37,6 +37,7 @@ if uploaded_file is not None:
     # Preprocess the image
     img_array = np.array(image)
     img_array = tf.image.resize(img_array, [224, 224], method=tf.image.ResizeMethod.BICUBIC)
+    img_array = img_array / 255.0   # Normalize the pixel values to the range [0, 1]
     img_array = np.expand_dims(img_array, axis=0)  # Add batch dimension
 
     # Assuming the signature key is 'serving_default'
